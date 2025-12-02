@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - Robin Cookie Checker Pro</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🔐</text></svg>">
+</head>
+<body>
+    <div class="container">
+        <!-- Login Section -->
+        <div id="loginSection" class="login-container">
+            <div class="login-box">
+                <div class="logo">
+                    <div class="logo-icon">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <h1>Robin Cookie Checker</h1>
+                    <p class="tagline">Professional Roblox Cookie Validation Tool</p>
+                </div>
+                
+                <div class="login-form">
+                    <div class="form-group">
+                        <label for="username">
+                            <i class="fas fa-user"></i> Username
+                        </label>
+                        <input type="text" id="username" placeholder="Masukkan username Anda" autocomplete="username">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="password">
+                            <i class="fas fa-lock"></i> Password
+                        </label>
+                        <input type="password" id="password" placeholder="Masukkan password Anda" autocomplete="current-password">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="webhook">
+                            <i class="fab fa-discord"></i> Discord Webhook URL (Opsional)
+                        </label>
+                        <input type="text" id="webhook" placeholder="https://discord.com/api/webhooks/...">
+                        <small class="form-help">Untuk menerima notifikasi hasil checking</small>
+                    </div>
+                    
+                    <button id="loginBtn" class="btn-login">
+                        <i class="fas fa-sign-in-alt"></i> Login ke Dashboard
+                    </button>
+                    
+                    <div class="login-footer">
+                        <div class="note">
+                            <i class="fas fa-info-circle"></i>
+                            <p>Dashboard untuk validasi cookies Roblox dengan sistem real-time</p>
+                        </div>
+                        
+                        <div class="admin-link">
+                            <a href="admin.html" class="admin-portal-link">
+                                <i class="fas fa-user-shield"></i> Admin Portal
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="login-features">
+                <h3><i class="fas fa-star"></i> Fitur Utama</h3>
+                <ul>
+                    <li><i class="fas fa-check-circle"></i> Validasi cookies Roblox real-time</li>
+                    <li><i class="fas fa-check-circle"></i> Notifikasi Discord webhook</li>
+                    <li><i class="fas fa-check-circle"></i> Download hasil valid cookies</li>
+                    <li><i class="fas fa-check-circle"></i> Multi-account support</li>
+                    <li><i class="fas fa-check-circle"></i> Progress tracking live</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Toast Notification -->
+        <div id="toast" class="toast">
+            <div class="toast-content">
+                <i class="fas fa-info-circle" id="toastIcon"></i>
+                <span id="toastMessage">Notification message</span>
+            </div>
+            <button id="toastClose" class="toast-close">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,101 @@
+{
+  "version": 2,
+  "builds": [
+    {
+      "src": "api/check.py",
+      "use": "@vercel/python"
+    },
+    {
+      "src": "api/admin.py",
+      "use": "@vercel/python"
+    },
+    {
+      "src": "public/**/*",
+      "use": "@vercel/static"
+    }
+  ],
+  "routes": [
+    {
+      "src": "/api/check",
+      "dest": "/api/check.py",
+      "methods": ["GET", "POST", "OPTIONS"]
+    },
+    {
+      "src": "/api/check/(.*)",
+      "dest": "/api/check.py",
+      "methods": ["GET", "POST", "OPTIONS"]
+    },
+    {
+      "src": "/api/admin",
+      "dest": "/api/admin.py",
+      "methods": ["GET", "POST", "OPTIONS"]
+    },
+    {
+      "src": "/api/admin/(.*)",
+      "dest": "/api/admin.py",
+      "methods": ["GET", "POST", "OPTIONS"]
+    },
+    {
+      "src": "/(.*)",
+      "dest": "/public/$1"
+    },
+    {
+      "src": "/",
+      "dest": "/public/index.html"
+    }
+  ],
+  "headers": [
+    {
+      "source": "/(.*)",
+      "headers": [
+        {
+          "key": "Access-Control-Allow-Origin",
+          "value": "*"
+        },
+        {
+          "key": "Access-Control-Allow-Methods",
+          "value": "GET, POST, PUT, DELETE, OPTIONS"
+        },
+        {
+          "key": "Access-Control-Allow-Headers",
+          "value": "X-CSRF-Token, X-Requested-With, Accept, Accept-Version, Content-Length, Content-MD5, Content-Type, Date, X-Api-Version, Authorization"
+        },
+        {
+          "key": "X-Content-Type-Options",
+          "value": "nosniff"
+        },
+        {
+          "key": "X-Frame-Options",
+          "value": "DENY"
+        },
+        {
+          "key": "X-XSS-Protection",
+          "value": "1; mode=block"
+        },
+        {
+          "key": "Referrer-Policy",
+          "value": "strict-origin-when-cross-origin"
+        }
+      ]
+    }
+  ],
+  "functions": {
+    "api/check.py": {
+      "maxDuration": 60,
+      "memory": 1024
+    },
+    "api/admin.py": {
+      "maxDuration": 30,
+      "memory": 512
+    }
+  },
+  "rewrites": [
+    {
+      "source": "/",
+      "destination": "/public/index.html"
+    }
+  ],
+  "env": {
+    "PYTHON_VERSION": "3.9"
+  }
+}
